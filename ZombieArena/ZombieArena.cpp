@@ -16,7 +16,7 @@ using namespace sf;
 
 int main()
 {
-	// Here is the instabce of TextureHolder
+	// Here is the instance of TextureHolder
 	TextureHolder holder;
 
 	// The game will always be in one of four states
@@ -291,6 +291,28 @@ int main()
 					// Reset the player's stats
 					player.resetPlayerStats();
 				}
+				// Spin and zoom the world
+
+				if (Keyboard::isKeyPressed(Keyboard::Left))
+				{
+					mainView.rotate(.5f);
+				}
+
+				if (Keyboard::isKeyPressed(Keyboard::Right))
+				{
+					mainView.rotate(-.5f);
+				}
+
+				if (Keyboard::isKeyPressed(Keyboard::Up))
+				{
+					mainView.zoom(.99f);
+				}
+
+				if (Keyboard::isKeyPressed(Keyboard::Down))
+				{
+					mainView.zoom(1.01f);
+				}
+				// End spinning and zooming
 
 				if (state == State::PLAYING)
 				{
@@ -301,7 +323,7 @@ int main()
 						{
 							// Plenty of bullets. Reload.
 							bulletsInClip = clipSize;
-							bulletsSpare -= clipSize;
+							bulletsSpare -= (clipSize - bulletsInClip);
 							reload.play();
 						}
 						else if (bulletsSpare > 0)
@@ -313,7 +335,7 @@ int main()
 						}
 						else
 						{
-							// Indicate nothing left to reload
+							// Indicate reload failed
 							reloadFailed.play();
 						}
 					}

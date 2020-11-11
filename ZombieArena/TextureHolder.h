@@ -5,13 +5,11 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 
-using namespace sf;
-
 class TextureHolder
 {
 public:
 	TextureHolder();
-	static Texture& GetTexture(std::string const& filename);
+	static sf::Texture& GetTexture(std::string const& filename);
 
 private:
 	// A map container from the STL,
