@@ -322,8 +322,9 @@ int main()
 						if (bulletsSpare >= clipSize)
 						{
 							// Plenty of bullets. Reload.
+							bulletsSpare += bulletsInClip;
 							bulletsInClip = clipSize;
-							bulletsSpare -= (clipSize - bulletsInClip);
+							bulletsSpare -= clipSize;
 							reload.play();
 						}
 						else if (bulletsSpare > 0)
