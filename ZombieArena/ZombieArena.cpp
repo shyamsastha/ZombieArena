@@ -2,10 +2,13 @@
 //
 
 #include "pch.h"
+#include <SFML/Graphics.hpp>
+#include"Player.h"
 #include <iostream>
 
 int main()
 {
+
 	return 0;
 }
 
